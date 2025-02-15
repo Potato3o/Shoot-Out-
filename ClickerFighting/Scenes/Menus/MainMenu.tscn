@@ -1,0 +1,685 @@
+[gd_scene load_steps=30 format=3 uid="uid://07iilus2pj4b"]
+
+[ext_resource type="Script" path="res://Scripts/Button.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cfakv2hyaiwpu" path="res://Sprites/Turrets.png" id="2"]
+[ext_resource type="Script" path="res://Scripts/TextureButton.gd" id="3"]
+[ext_resource type="Script" path="res://Scripts/HoverInfo.gd" id="4"]
+[ext_resource type="SpriteFrames" uid="uid://dlsck7ejkfnsn" path="res://Combat.tres" id="5"]
+[ext_resource type="FontFile" uid="uid://dlpkwyd43a1dn" path="res://ConnectionIi-2wj8.otf" id="6"]
+[ext_resource type="Texture2D" uid="uid://5e6jjxyrc8no" path="res://Sprites/Screen Shot 2023-04-18 at 11.40.04 AM.png" id="7"]
+[ext_resource type="AudioStream" uid="uid://bt8u8b74c514v" path="res://Audio/Menu music.wav" id="8"]
+[ext_resource type="Script" path="res://Scripts/MuteButton.gd" id="9"]
+
+[sub_resource type="Gradient" id="1"]
+
+[sub_resource type="GradientTexture2D" id="2"]
+gradient = SubResource("1")
+fill_from = Vector2(0, 0.00208333)
+fill_to = Vector2(0.00208333, 0.00416667)
+
+[sub_resource type="FontFile" id="14"]
+fallbacks = Array[Font]([ExtResource("6")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="15"]
+fallbacks = Array[Font]([ExtResource("6")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="AtlasTexture" id="3"]
+atlas = ExtResource("2")
+region = Rect2(120, 52.2988, 60, 38.9646)
+
+[sub_resource type="AtlasTexture" id="4"]
+atlas = ExtResource("2")
+region = Rect2(180, 20, 60, 70)
+
+[sub_resource type="AtlasTexture" id="5"]
+atlas = ExtResource("2")
+region = Rect2(0, 50, 60, 40)
+
+[sub_resource type="AtlasTexture" id="6"]
+atlas = ExtResource("2")
+region = Rect2(60, 10, 60, 80)
+
+[sub_resource type="AtlasTexture" id="7"]
+atlas = ExtResource("2")
+region = Rect2(240, 50, 60, 40)
+
+[sub_resource type="AtlasTexture" id="8"]
+atlas = ExtResource("2")
+region = Rect2(300, 0, 60, 90)
+
+[sub_resource type="AtlasTexture" id="9"]
+atlas = ExtResource("2")
+region = Rect2(360, 50, 60, 40)
+
+[sub_resource type="AtlasTexture" id="10"]
+atlas = ExtResource("2")
+region = Rect2(420, 10, 50, 80)
+
+[sub_resource type="AtlasTexture" id="11"]
+atlas = ExtResource("2")
+region = Rect2(480, 50, 60, 40)
+
+[sub_resource type="AtlasTexture" id="12"]
+atlas = ExtResource("2")
+region = Rect2(540, 10, 60, 80)
+
+[sub_resource type="FontFile" id="16"]
+fallbacks = Array[Font]([ExtResource("6")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="13"]
+size = Vector2(26, 16)
+
+[sub_resource type="Gradient" id="17"]
+
+[sub_resource type="GradientTexture2D" id="18"]
+gradient = SubResource("17")
+fill_to = Vector2(0.00416667, 0.00833333)
+
+[sub_resource type="FontFile" id="19"]
+fallbacks = Array[Font]([ExtResource("6")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[sub_resource type="FontFile" id="20"]
+fallbacks = Array[Font]([ExtResource("6")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/glyphs/0/advance = Vector2(0, 0)
+cache/0/16/0/glyphs/0/offset = Vector2(0, 0)
+cache/0/16/0/glyphs/0/size = Vector2(0, 0)
+cache/0/16/0/glyphs/0/uv_rect = Rect2(0, 0, 0, 0)
+cache/0/16/0/glyphs/0/texture_idx = -1
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="MainMenu" type="Camera2D" parent="."]
+zoom = Vector2(0.25, 0.25)
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu"]
+modulate = Color(0.0901961, 0.509804, 0.760784, 1)
+offset_left = -136.0
+offset_top = -80.0
+offset_right = 134.0
+offset_bottom = 80.0
+texture = SubResource("2")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu"]
+offset_left = -84.0
+offset_top = -65.0
+offset_right = 73.0
+offset_bottom = -34.0
+theme_override_colors/default_color = Color(0.901961, 0.666667, 0.101961, 1)
+theme_override_fonts/normal_font = SubResource("14")
+text = "Shoot Out!"
+
+[node name="Play" type="Button" parent="MainMenu"]
+modulate = Color(0.0823529, 0.827451, 0.956863, 1)
+offset_left = -92.0
+offset_top = -30.0
+offset_right = -28.0
+offset_bottom = -10.0
+text = "Play"
+script = ExtResource("1")
+cam = NodePath("../../PlayCam")
+spec = true
+
+[node name="Turrets" type="Button" parent="MainMenu"]
+modulate = Color(0.85098, 0.113725, 0.270588, 1)
+offset_left = 15.0
+offset_top = -30.0
+offset_right = 79.0
+offset_bottom = -10.0
+text = "Turrets"
+script = ExtResource("1")
+cam = NodePath("../../TurretCam")
+
+[node name="Tutorial" type="Button" parent="MainMenu"]
+modulate = Color(0.956863, 0.921569, 0.0823529, 1)
+offset_left = -92.0
+offset_top = 27.0
+offset_right = -28.0
+offset_bottom = 47.0
+text = "Tutorial"
+script = ExtResource("1")
+cam = NodePath("../../Tutorial")
+
+[node name="Credits" type="Button" parent="MainMenu"]
+modulate = Color(0.294118, 0.956863, 0.0823529, 1)
+offset_left = 15.0
+offset_top = 27.0
+offset_right = 79.0
+offset_bottom = 47.0
+text = "Credits"
+script = ExtResource("1")
+
+[node name="CheckBox" type="CheckBox" parent="MainMenu"]
+offset_left = 66.0
+offset_top = 51.0
+offset_right = 127.0
+offset_bottom = 75.0
+text = "Mute"
+script = ExtResource("9")
+
+[node name="PlayCam" type="Camera2D" parent="."]
+position = Vector2(-5, -218)
+zoom = Vector2(0.25, 0.25)
+
+[node name="TextureRect2" type="TextureRect" parent="PlayCam"]
+modulate = Color(0.0901961, 0.509804, 0.760784, 1)
+offset_left = -137.0
+offset_top = -81.0
+offset_right = 133.0
+offset_bottom = 79.0
+texture = SubResource("2")
+expand_mode = 1
+
+[node name="Diff" type="Control" parent="PlayCam"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -194.0
+offset_top = 19.0
+offset_right = -154.0
+offset_bottom = 59.0
+
+[node name="Easy" type="Button" parent="PlayCam/Diff"]
+modulate = Color(0.0627451, 0.905882, 0.156863, 1)
+layout_mode = 0
+offset_left = 85.0
+offset_top = -28.0
+offset_right = 125.0
+offset_bottom = -8.0
+text = "Easy"
+script = ExtResource("1")
+
+[node name="Med" type="Button" parent="PlayCam/Diff"]
+modulate = Color(0.992157, 0.623529, 0.0509804, 1)
+layout_mode = 0
+offset_left = 164.0
+offset_top = -29.0
+offset_right = 229.0
+offset_bottom = -9.0
+text = "Medium"
+script = ExtResource("1")
+info = 1
+
+[node name="Hard" type="Button" parent="PlayCam/Diff"]
+modulate = Color(1, 0.0784314, 0.0784314, 1)
+layout_mode = 0
+offset_left = 267.0
+offset_top = -29.0
+offset_right = 309.0
+offset_bottom = -9.0
+text = "Hard"
+script = ExtResource("1")
+info = 2
+
+[node name="Label" type="Label" parent="PlayCam/Diff"]
+layout_mode = 0
+offset_left = 134.0
+offset_top = -68.0
+offset_right = 264.0
+offset_bottom = -51.0
+theme_override_fonts/font = SubResource("15")
+text = "Select Difficulty"
+
+[node name="Character" type="Control" parent="PlayCam"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -197.0
+offset_top = -50.0
+offset_right = -157.0
+offset_bottom = -10.0
+
+[node name="TextureButton" type="TextureButton" parent="PlayCam/Character"]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 76.0
+offset_right = 118.0
+offset_bottom = 116.0
+texture_normal = SubResource("3")
+texture_hover = SubResource("4")
+script = ExtResource("3")
+character = "Pur"
+
+[node name="TextureButton2" type="TextureButton" parent="PlayCam/Character"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 76.0
+offset_right = 164.0
+offset_bottom = 116.0
+texture_normal = SubResource("5")
+texture_hover = SubResource("6")
+script = ExtResource("3")
+character = "Yellow"
+
+[node name="TextureButton3" type="TextureButton" parent="PlayCam/Character"]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 76.0
+offset_right = 216.0
+offset_bottom = 116.0
+texture_normal = SubResource("7")
+texture_hover = SubResource("8")
+script = ExtResource("3")
+character = "Bob"
+
+[node name="TextureButton4" type="TextureButton" parent="PlayCam/Character"]
+layout_mode = 0
+offset_left = 223.0
+offset_top = 76.0
+offset_right = 263.0
+offset_bottom = 116.0
+texture_normal = SubResource("9")
+texture_hover = SubResource("10")
+script = ExtResource("3")
+character = "Gem"
+
+[node name="TextureButton5" type="TextureButton" parent="PlayCam/Character"]
+layout_mode = 0
+offset_left = 271.0
+offset_top = 75.0
+offset_right = 311.0
+offset_bottom = 115.0
+texture_normal = SubResource("11")
+texture_hover = SubResource("12")
+script = ExtResource("3")
+character = "Pete"
+
+[node name="Label2" type="Label" parent="PlayCam/Character"]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 1.0
+offset_right = 276.0
+offset_bottom = 18.0
+theme_override_fonts/font = SubResource("16")
+text = "Select Character"
+
+[node name="Fight" type="Button" parent="PlayCam"]
+visible = false
+modulate = Color(0.737255, 0.121569, 0.823529, 1)
+offset_left = -53.0
+offset_top = -21.0
+offset_right = -2.0
+offset_bottom = -0.999992
+scale = Vector2(1.98459, 1.98459)
+text = "FIGHT"
+script = ExtResource("1")
+path = "res://Scenes/Combat.tscn"
+
+[node name="Button2" type="Button" parent="PlayCam"]
+offset_left = -123.0
+offset_top = -69.0
+offset_right = -81.0
+offset_bottom = -49.0
+text = "Back"
+script = ExtResource("1")
+cam = NodePath("../../MainMenu")
+
+[node name="TurretCam" type="Camera2D" parent="."]
+position = Vector2(-567, -211)
+zoom = Vector2(0.5, 0.35)
+
+[node name="TextureRect2" type="TextureRect" parent="TurretCam"]
+modulate = Color(0.0901961, 0.509804, 0.760784, 1)
+offset_left = -315.0
+offset_top = -108.0
+offset_right = -45.0
+offset_bottom = 52.0
+scale = Vector2(2.29685, 1.41686)
+mouse_filter = 2
+texture = SubResource("2")
+expand_mode = 1
+
+[node name="Area2D" type="Area2D" parent="TurretCam"]
+position = Vector2(-201, 89)
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 0.0
+
+[node name="Stats" type="Label" parent="TurretCam/Area2D"]
+offset_left = -46.0
+offset_top = -145.0
+offset_right = 50.0
+offset_bottom = -37.0
+text = "Tower of Terror
+
+Power: good
+Ammo: 13
+Energy: good
+Reload: good
+HP: good"
+
+[node name="Pilot" type="Label" parent="TurretCam/Area2D"]
+visible = false
+offset_left = -34.0
+offset_top = -172.0
+offset_right = 57.0
+offset_bottom = -56.0
+text = "Pilot: the P*ssy destroyer
+
+Sabotage: Force Enemy 
+to reload"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TurretCam/Area2D"]
+position = Vector2(1, -1)
+shape = SubResource("13")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TurretCam/Area2D"]
+position = Vector2(1, -30)
+sprite_frames = ExtResource("5")
+animation = &"Pur"
+script = ExtResource("4")
+
+[node name="Area2D2" type="Area2D" parent="TurretCam"]
+position = Vector2(-103, 89)
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 0.0
+
+[node name="Stats" type="Label" parent="TurretCam/Area2D2"]
+offset_left = -39.0
+offset_top = -144.0
+offset_right = 47.0
+offset_bottom = -36.0
+text = "Gary
+
+Power: weak
+Ammo: 35
+Energy: good
+Reload: good
+HP: good"
+
+[node name="Pilot" type="Label" parent="TurretCam/Area2D2"]
+visible = false
+offset_left = -34.0
+offset_top = -172.0
+offset_right = 57.0
+offset_bottom = -56.0
+text = "Pilot: Yellow Fellow
+
+Quick switch: immediately reload one round"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TurretCam/Area2D2"]
+position = Vector2(1, -1)
+shape = SubResource("13")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TurretCam/Area2D2"]
+position = Vector2(1, -30)
+sprite_frames = ExtResource("5")
+animation = &"Yellow"
+script = ExtResource("4")
+
+[node name="Area2D3" type="Area2D" parent="TurretCam"]
+position = Vector2(-2, 89)
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 0.0
+
+[node name="Stats" type="Label" parent="TurretCam/Area2D3"]
+offset_left = -44.0
+offset_top = -145.0
+offset_right = 47.0
+offset_bottom = -29.0
+text = "Bobber
+
+Power: Great
+Ammo: 7
+Energy: low
+Reload: fast
+HP:  Very High"
+
+[node name="Pilot" type="Label" parent="TurretCam/Area2D3"]
+visible = false
+offset_left = -42.0
+offset_top = -172.0
+offset_right = 49.0
+offset_bottom = -56.0
+text = "Pilot: Magic Girl Lover
+
+Sandvich: heal a small amount of HP"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TurretCam/Area2D3"]
+position = Vector2(1, -1)
+shape = SubResource("13")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TurretCam/Area2D3"]
+position = Vector2(1, -30)
+sprite_frames = ExtResource("5")
+animation = &"Bob"
+script = ExtResource("4")
+
+[node name="Area2D4" type="Area2D" parent="TurretCam"]
+position = Vector2(93, 89)
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 0.0
+
+[node name="Stats" type="Label" parent="TurretCam/Area2D4"]
+offset_left = -48.0
+offset_top = -142.0
+offset_right = 63.0
+offset_bottom = -26.0
+text = "Peridot 
+
+Power: Great
+Ammo: 5
+Energy: Very High
+Reload: slow
+HP: Low"
+
+[node name="Pilot" type="Label" parent="TurretCam/Area2D4"]
+visible = false
+offset_left = -40.0
+offset_top = -172.0
+offset_right = 51.0
+offset_bottom = -56.0
+text = "Pilot: the Joker
+
+Photosynthesis: immediately fill energy bar"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TurretCam/Area2D4"]
+position = Vector2(1, -1)
+shape = SubResource("13")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TurretCam/Area2D4"]
+position = Vector2(1, -30)
+sprite_frames = ExtResource("5")
+animation = &"Gem"
+script = ExtResource("4")
+
+[node name="Area2D5" type="Area2D" parent="TurretCam"]
+position = Vector2(197, 89)
+gravity_point_center = Vector2(0, 0)
+gravity_direction = Vector2(0, 0)
+gravity = 0.0
+
+[node name="Stats" type="Label" parent="TurretCam/Area2D5"]
+offset_left = -32.0
+offset_top = -145.0
+offset_right = 37.0
+offset_bottom = -37.0
+text = "Pipe
+
+Power: weak
+Ammo: 20
+Energy: High
+Reload: fast
+HP: High"
+
+[node name="Pilot" type="Label" parent="TurretCam/Area2D5"]
+visible = false
+offset_left = -34.0
+offset_top = -172.0
+offset_right = 57.0
+offset_bottom = -56.0
+text = "Pilot: Pete
+
+Drain: Set enemy energy to 0"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TurretCam/Area2D5"]
+position = Vector2(1, -1)
+shape = SubResource("13")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TurretCam/Area2D5"]
+position = Vector2(1, -30)
+sprite_frames = ExtResource("5")
+animation = &"Pete"
+script = ExtResource("4")
+
+[node name="Button" type="Button" parent="TurretCam"]
+offset_left = -251.0
+offset_top = -100.0
+offset_right = -209.0
+offset_bottom = -80.0
+text = "Back"
+script = ExtResource("1")
+cam = NodePath("../../MainMenu")
+
+[node name="Tutorial" type="Camera2D" parent="."]
+position = Vector2(914, -10)
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial"]
+modulate = Color(0.0509804, 0.866667, 0.905882, 1)
+offset_left = -536.0
+offset_top = -321.0
+offset_right = 552.0
+offset_bottom = 362.0
+texture = SubResource("18")
+expand_mode = 1
+
+[node name="ViusalAid" type="Sprite2D" parent="Tutorial"]
+position = Vector2(249, -146)
+scale = Vector2(0.34254, 0.411145)
+texture = ExtResource("7")
+
+[node name="Label" type="Label" parent="Tutorial"]
+offset_left = -388.0
+offset_top = -283.0
+offset_right = -63.0
+offset_bottom = -258.0
+theme_override_colors/font_color = Color(0.937255, 0.0509804, 0.0509804, 1)
+theme_override_fonts/font = SubResource("19")
+text = "Kill your opponent to win"
+
+[node name="Controls" type="Label" parent="Tutorial"]
+offset_left = -407.0
+offset_top = -244.0
+offset_right = -52.0
+offset_bottom = -163.0
+theme_override_colors/font_color = Color(0.478431, 0.482353, 0.894118, 1)
+theme_override_fonts/font = SubResource("19")
+text = "Left Mouse Click to shoot
+Right Mouse click/E to cover
+Spacebar to use pilot ablity"
+
+[node name="Bars" type="Label" parent="Tutorial"]
+offset_left = -502.0
+offset_top = -139.0
+offset_right = 32.0
+offset_bottom = 362.0
+theme_override_fonts/font = SubResource("20")
+text = "you can shoot at any rate until you run out of ammo, once out of ammo  you will reload.
+
+Covering prevents you from being hit, but you can't shoot back.
+
+Covering takes energy (blue/yellow bar) once out of energy  you will not be able to cover again until you regained energy
+
+Healthbars (Green/Red bars) show how much health the respective player has left.
+
+you get to use the pilot ablity once per battle, repersented by ONLINE or OFFLINE
+(Hover over turrets in the TURRETS menu to get more info)"
+
+[node name="2Player" type="Label" parent="Tutorial"]
+offset_left = 36.0
+offset_top = 22.0
+offset_right = 497.0
+offset_bottom = 67.0
+theme_override_colors/font_color = Color(0.227451, 0.854902, 0.156863, 1)
+theme_override_fonts/font = SubResource("19")
+text = "2player controls"
+
+[node name="Button3" type="Button" parent="Tutorial"]
+offset_left = -497.0
+offset_top = -291.0
+offset_right = -432.0
+offset_bottom = -260.0
+text = "Back"
+script = ExtResource("1")
+cam = NodePath("../../MainMenu")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8")
+volume_db = -13.983
+autoplay = true
+
+[connection signal="pressed" from="MainMenu/Play" to="MainMenu/Play" method="_on_button_pressed"]
+[connection signal="pressed" from="MainMenu/Turrets" to="MainMenu/Turrets" method="_on_button_pressed"]
+[connection signal="pressed" from="MainMenu/Tutorial" to="MainMenu/Tutorial" method="_on_button_pressed"]
+[connection signal="pressed" from="MainMenu/Credits" to="MainMenu/Credits" method="_on_button_pressed"]
+[connection signal="toggled" from="MainMenu/CheckBox" to="MainMenu/CheckBox" method="_on_CheckBox_toggled"]
+[connection signal="pressed" from="PlayCam/Diff/Easy" to="PlayCam/Diff/Easy" method="_on_button_pressed"]
+[connection signal="pressed" from="PlayCam/Diff/Med" to="PlayCam/Diff/Med" method="_on_button_pressed"]
+[connection signal="pressed" from="PlayCam/Diff/Hard" to="PlayCam/Diff/Hard" method="_on_button_pressed"]
+[connection signal="pressed" from="PlayCam/Character/TextureButton" to="PlayCam/Character/TextureButton" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="PlayCam/Character/TextureButton2" to="PlayCam/Character/TextureButton2" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="PlayCam/Character/TextureButton3" to="PlayCam/Character/TextureButton3" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="PlayCam/Character/TextureButton4" to="PlayCam/Character/TextureButton4" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="PlayCam/Character/TextureButton5" to="PlayCam/Character/TextureButton5" method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="PlayCam/Fight" to="PlayCam/Fight" method="_on_button_pressed"]
+[connection signal="pressed" from="PlayCam/Button2" to="PlayCam/Button2" method="_on_button_pressed"]
+[connection signal="mouse_entered" from="TurretCam/Area2D" to="TurretCam/Area2D/AnimatedSprite2D" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="TurretCam/Area2D" to="TurretCam/Area2D/AnimatedSprite2D" method="_on_Area2D_mouse_exited"]
+[connection signal="mouse_entered" from="TurretCam/Area2D2" to="TurretCam/Area2D2/AnimatedSprite2D" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="TurretCam/Area2D2" to="TurretCam/Area2D2/AnimatedSprite2D" method="_on_Area2D_mouse_exited"]
+[connection signal="mouse_entered" from="TurretCam/Area2D3" to="TurretCam/Area2D3/AnimatedSprite2D" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="TurretCam/Area2D3" to="TurretCam/Area2D3/AnimatedSprite2D" method="_on_Area2D_mouse_exited"]
+[connection signal="mouse_entered" from="TurretCam/Area2D4" to="TurretCam/Area2D4/AnimatedSprite2D" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="TurretCam/Area2D4" to="TurretCam/Area2D4/AnimatedSprite2D" method="_on_Area2D_mouse_exited"]
+[connection signal="mouse_entered" from="TurretCam/Area2D5" to="TurretCam/Area2D5/AnimatedSprite2D" method="_on_Area2D_mouse_entered"]
+[connection signal="mouse_exited" from="TurretCam/Area2D5" to="TurretCam/Area2D5/AnimatedSprite2D" method="_on_Area2D_mouse_exited"]
+[connection signal="pressed" from="TurretCam/Button" to="TurretCam/Button" method="_on_button_pressed"]
+[connection signal="pressed" from="Tutorial/Button3" to="Tutorial/Button3" method="_on_button_pressed"]

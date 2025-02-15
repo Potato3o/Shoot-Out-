@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/Turret+Bullets.png" type="Texture2D" id=1]
+[ext_resource path="res://Scripts/Bullet.gd" type="Script" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 1 )
+region = Rect2( 126.862, 42.0981, 46.2523, 13.1163 )
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
+linear_damp = 0.0
+script = ExtResource( 2 )
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color( 0.25098, 0.992157, 0.0431373, 1 )
+scale = Vector2( 0.346154, 0.346154 )
+texture = SubResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+build_mode = 1
+polygon = PackedVector2Array( 0, -1, -4, -1, -7, 0, -4, 2, 3, 2, 8, 1, 5, -1 )
+
+[connection signal="body_entered" from="." to="." method="_on_RigidBody2D_body_entered"]

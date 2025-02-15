@@ -1,0 +1,850 @@
+[gd_scene load_steps=40 format=2]
+
+[ext_resource path="res://Scripts/EnemyScript.gd" type="Script" id=1]
+[ext_resource path="res://Combat.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://Scripts/EnergyBar.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/PlayerInput.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/Turrets.png" type="Texture2D" id=5]
+[ext_resource path="res://Scripts/Button.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Pause.gd" type="Script" id=7]
+[ext_resource path="res://ConnectionIi-2wj8.otf" type="FontFile" id=8]
+[ext_resource path="res://Scripts/AblityControl.gd" type="Script" id=9]
+[ext_resource path="res://Sprites/Background3.jpeg" type="Texture2D" id=10]
+[ext_resource path="res://Sprites/Background1.jpeg" type="Texture2D" id=11]
+[ext_resource path="res://Sprites/Background2.jpeg" type="Texture2D" id=12]
+[ext_resource path="res://Sprites/Ablitybackground.jpeg" type="Texture2D" id=13]
+[ext_resource path="res://Audio/Combat music.wav" type="AudioStream" id=14]
+
+[sub_resource type="SpriteFrames" id=30]
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "Grounds",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 609.106, 50.1666, 47.1586, 40.4384 )
+
+[sub_resource type="Gradient" id=7]
+
+[sub_resource type="GradientTexture2D" id=8]
+gradient = SubResource( 7 )
+fill_to = Vector2( 0, 0 )
+
+[sub_resource type="Gradient" id=9]
+
+[sub_resource type="GradientTexture2D" id=10]
+gradient = SubResource( 9 )
+fill_to = Vector2( 0.00431034, 0.00526402 )
+
+[sub_resource type="RectangleShape2D" id=11]
+size = Vector2( 25.5, 10 )
+
+[sub_resource type="FontFile" id=28]
+size = 14
+font_data = ExtResource( 8 )
+
+[sub_resource type="Gradient" id=5]
+
+[sub_resource type="GradientTexture2D" id=6]
+gradient = SubResource( 5 )
+fill_to = Vector2( 0.00208333, 0.00208333 )
+
+[sub_resource type="Animation" id=31]
+resource_name = "Ablity"
+length = 3.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("CPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0, 0.1, 2 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TowerClose:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PackedFloat32Array( 0, 0.5, 2.5, 3 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -955, 72 ), Vector2( -67, 72 ), Vector2( 61, 72 ), Vector2( 452, 76 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "DropDown"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0, 0.4, 0.9, 1.4, 1.6, 1.8 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -260, -378 ), Vector2( -260, -136 ), Vector2( -260, -218 ), Vector2( -260, -136 ), Vector2( -260, -152 ), Vector2( -260, -136 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TextureRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "Intro"
+length = 5.9
+tracks/0/type = "value"
+tracks/0/path = NodePath("Intro:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ Vector2( -261, -123 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Intro/RichTextLabel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PackedFloat32Array( 0, 0.5, 1, 1.5 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -88.1336, 10.9619 ), Vector2( 5.70018, 10.9619 ), Vector2( 20.8276, 10.9619 ), Vector2( 119.485, 10.9619 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Intro/ShowCase:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PackedFloat32Array( 1.5, 2, 2.5, 3 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 29.1586, -12.935 ), Vector2( 27.8432, 21.2661 ), Vector2( 27.8432, 26.3085 ), Vector2( 24.7739, 79.3641 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Intro/Label2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PackedFloat32Array( 1.5, 2, 2.5, 3 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -26.9662, 68.4022 ), Vector2( 35.2973, 26.3085 ), Vector2( 49.1092, 21.7045 ), Vector2( 121.238, -13.3735 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Intro/Label:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PackedFloat32Array( 1.5, 2, 2.5, 3 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 120.8, -21.7045 ), Vector2( 52.1786, 6.13866 ), Vector2( 47.3553, 8.1118 ), Vector2( -27.1855, 55.2479 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Intro:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PackedFloat32Array( 0, 3.5 ),
+"transitions": PackedFloat32Array( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Camera2D/Label3:text")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PackedFloat32Array( 3.7, 4.2, 4.7, 5.2 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ "3", "2", "1", "FIGHT" ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Camera2D/Label3:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PackedFloat32Array( 3.7, 5.9 ),
+"transitions": PackedFloat32Array( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Camera2D:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PackedFloat32Array( 0, 3.6, 4, 4.2, 4.5, 4.7, 5 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( -109, 0 ), Vector2( -109, 0 ), Vector2( 110, 0 ), Vector2( 110, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Camera2D:zoom")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PackedFloat32Array( 0, 3.6, 4, 4.2, 4.5, 4.7, 5 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.4 ), Vector2( 0.5, 0.4 ), Vector2( 0.3, 0.2 ), Vector2( 0.3, 0.2 ), Vector2( 0.3, 0.2 ), Vector2( 0.3, 0.2 ), Vector2( 0.5, 0.4 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ Vector2( -260, -378 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Intro:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ Vector2( -261, -123 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Intro/RichTextLabel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ Vector2( -88.1336, 10.9619 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Intro/ShowCase:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ Vector2( 29.1586, -12.935 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Intro/Label2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ Vector2( -26.9662, 68.4022 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Intro/Label:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ Vector2( 120.8, -21.7045 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Intro:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Camera2D/Label3:text")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ "3" ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Camera2D/Label3:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("TextureRect:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Camera2D:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Camera2D:zoom")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.4 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("TowerClose:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("TowerClose:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ Vector2( 366, 191 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("CPUParticles2D:emitting")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Gradient" id=12]
+
+[sub_resource type="GradientTexture2D" id=13]
+gradient = SubResource( 12 )
+fill_to = Vector2( 0.00208333, 0.00416667 )
+
+[sub_resource type="FontFile" id=25]
+font_data = ExtResource( 8 )
+
+[sub_resource type="Gradient" id=19]
+
+[sub_resource type="GradientTexture2D" id=20]
+gradient = SubResource( 19 )
+fill_to = Vector2( 0.00208333, 0.00416667 )
+
+[sub_resource type="Gradient" id=22]
+
+[sub_resource type="GradientTexture2D" id=23]
+gradient = SubResource( 22 )
+fill_to = Vector2( 0.00208333, 0.00625 )
+
+[sub_resource type="FontFile" id=24]
+font_data = ExtResource( 8 )
+
+[sub_resource type="FontFile" id=26]
+font_data = ExtResource( 8 )
+
+[sub_resource type="FontFile" id=27]
+font_data = ExtResource( 8 )
+
+[sub_resource type="FontFile" id=29]
+size = 45
+font_data = ExtResource( 8 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_horizontal_guides_": [ -193.0 ]
+}
+
+[node name="BackgroundNoise" type="AudioStreamPlayer" parent="."]
+process_mode = 2
+stream = ExtResource( 14 )
+volume_db = -17.916
+autoplay = true
+
+[node name="VoiceLines" type="AudioStreamPlayer" parent="."]
+process_mode = 2
+volume_db = -6.555
+
+[node name="VoiceLines2" type="AudioStreamPlayer" parent="."]
+process_mode = 2
+volume_db = -6.555
+
+[node name="Background" type="AnimatedSprite2D" parent="."]
+position = Vector2( 1, -2.38419e-07 )
+scale = Vector2( 1.73411, 1.46429 )
+frames = SubResource( 30 )
+animation = "Grounds"
+
+[node name="Wall1" type="Sprite2D" parent="."]
+position = Vector2( -153.5, 45 )
+scale = Vector2( 1.16001, 1.18418 )
+texture = SubResource( 16 )
+
+[node name="Wall2" type="Sprite2D" parent="."]
+position = Vector2( 149, 45 )
+scale = Vector2( 1.16001, 1.18418 )
+texture = SubResource( 16 )
+flip_h = true
+
+[node name="PlayerTurret" type="AnimatedSprite2D" parent="."]
+position = Vector2( -213, 26 )
+frames = ExtResource( 2 )
+animation = "Yellow"
+frame = 1
+flip_h = true
+script = ExtResource( 4 )
+
+[node name="ReloadWarning" type="Label" parent="PlayerTurret"]
+offset_left = -36.0
+offset_top = -110.0
+offset_right = 33.0
+offset_bottom = -96.0
+pivot_offset = Vector2( 28, 9 )
+text = "Ammo: ???"
+
+[node name="PlayerBulletSpawn" type="Node2D" parent="PlayerTurret"]
+position = Vector2( 42, -19 )
+
+[node name="EnergyBar" type="TextureProgressBar" parent="PlayerTurret"]
+modulate = Color( 0.0862745, 0.839216, 0.937255, 1 )
+offset_left = -43.0
+offset_top = -125.0
+offset_right = 168.0
+offset_bottom = -112.0
+pivot_offset = Vector2( 35, 24 )
+value = 100.0
+texture_under = SubResource( 8 )
+texture_progress = SubResource( 10 )
+nine_patch_stretch = true
+script = ExtResource( 3 )
+
+[node name="LagTime" type="Timer" parent="PlayerTurret/EnergyBar"]
+wait_time = 0.25
+one_shot = true
+
+[node name="HealthBar" type="TextureProgressBar" parent="PlayerTurret"]
+modulate = Color( 0.156863, 0.937255, 0.0862745, 1 )
+offset_left = -42.5002
+offset_top = -146.0
+offset_right = 189.5
+offset_bottom = -123.0
+pivot_offset = Vector2( 34.5002, 45 )
+value = 100.0
+texture_under = SubResource( 8 )
+texture_progress = SubResource( 10 )
+nine_patch_stretch = true
+
+[node name="ReloadTime" type="Timer" parent="PlayerTurret"]
+wait_time = 2.0
+one_shot = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PlayerTurret"]
+position = Vector2( 3, -20 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerTurret/StaticBody2D"]
+shape = SubResource( 11 )
+
+[node name="Skill" type="Label" parent="PlayerTurret"]
+offset_left = -38.0
+offset_top = -94.0
+offset_right = 2.0
+offset_bottom = -80.0
+text = "Pilot Skill: "
+
+[node name="Status" type="Label" parent="PlayerTurret/Skill"]
+modulate = Color( 0.890196, 0.0784314, 0.0784314, 1 )
+offset_left = 64.0
+offset_top = -1.0
+offset_right = 110.0
+offset_bottom = 16.0
+theme_override_fonts/font = SubResource( 28 )
+text = "Offline"
+
+[node name="EnemyTurret" type="AnimatedSprite2D" parent="."]
+position = Vector2( 219.5, 26 )
+frames = ExtResource( 2 )
+animation = "Gem"
+frame = 1
+script = ExtResource( 1 )
+
+[node name="ReloadWarning2" type="Label" parent="EnemyTurret"]
+offset_left = -50.5
+offset_top = -109.0
+offset_right = 16.5
+offset_bottom = -95.0
+pivot_offset = Vector2( 28, 9 )
+text = "Ammo: ???"
+
+[node name="EnemyBulletSpawn" type="Node2D" parent="EnemyTurret"]
+position = Vector2( -48.5, -19 )
+
+[node name="EnergyBar2" type="TextureProgressBar" parent="EnemyTurret"]
+modulate = Color( 0.941176, 0.968627, 0.0313726, 1 )
+offset_left = -174.5
+offset_top = -124.0
+offset_right = 36.4998
+offset_bottom = -111.0
+pivot_offset = Vector2( 35, 24 )
+value = 100.0
+texture_under = SubResource( 8 )
+texture_progress = SubResource( 10 )
+fill_mode = 1
+nine_patch_stretch = true
+script = ExtResource( 3 )
+
+[node name="LagTime" type="Timer" parent="EnemyTurret/EnergyBar2"]
+wait_time = 0.25
+one_shot = true
+
+[node name="HealthBar2" type="TextureProgressBar" parent="EnemyTurret"]
+modulate = Color( 1, 0, 0, 1 )
+offset_left = -195.5
+offset_top = -145.0
+offset_right = 36.5
+offset_bottom = -122.0
+pivot_offset = Vector2( 34.5002, 45 )
+value = 100.0
+texture_under = SubResource( 8 )
+texture_progress = SubResource( 10 )
+fill_mode = 1
+nine_patch_stretch = true
+
+[node name="ReloadTime2" type="Timer" parent="EnemyTurret"]
+wait_time = 2.0
+one_shot = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="EnemyTurret"]
+position = Vector2( -4.5, -20 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyTurret/StaticBody2D2"]
+shape = SubResource( 11 )
+
+[node name="Skill2" type="Label" parent="EnemyTurret"]
+offset_left = -80.5
+offset_top = -94.0
+offset_right = -13.5
+offset_bottom = -80.0
+text = "Pilot Skill: "
+
+[node name="Status" type="Label" parent="EnemyTurret/Skill2"]
+modulate = Color( 0.890196, 0.0784314, 0.0784314, 1 )
+offset_left = 64.0
+offset_top = -1.0
+offset_right = 110.0
+offset_bottom = 16.0
+theme_override_fonts/font = SubResource( 28 )
+text = "Offline"
+
+[node name="WaitTime" type="Timer" parent="EnemyTurret"]
+wait_time = 2.0
+one_shot = true
+
+[node name="Ground" type="Sprite2D" parent="."]
+modulate = Color( 0.227451, 0.0627451, 0.0627451, 1 )
+position = Vector2( -6, 100 )
+scale = Vector2( 8.64062, 1 )
+texture = SubResource( 6 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 2
+anims/Ablity = SubResource( 31 )
+anims/DropDown = SubResource( 14 )
+anims/Intro = SubResource( 21 )
+anims/RESET = SubResource( 15 )
+
+[node name="Pause" type="Button" parent="."]
+process_mode = 2
+offset_left = -20.0
+offset_top = -116.0
+offset_right = 30.0
+offset_bottom = -96.0
+scale = Vector2( 0.805778, 0.805778 )
+text = "Pause"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -260.0
+offset_top = -378.0
+offset_right = 264.0
+offset_bottom = -124.0
+texture = SubResource( 13 )
+expand = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TextureRect"]
+modulate = Color( 0.129412, 0.933333, 0.0627451, 1 )
+offset_left = 175.0
+offset_top = 44.0
+offset_right = 215.0
+offset_bottom = 84.0
+scale = Vector2( 4.45173, 4.94491 )
+theme_override_fonts/normal_font = SubResource( 25 )
+text = "YOU WIN :)"
+fit_content_height = true
+
+[node name="Button" type="Button" parent="TextureRect"]
+process_mode = 2
+offset_left = 145.0
+offset_top = 219.0
+offset_right = 221.0
+offset_bottom = 239.0
+text = "Quit"
+
+[node name="Button2" type="Button" parent="TextureRect"]
+process_mode = 2
+offset_left = 292.0
+offset_top = 220.0
+offset_right = 368.0
+offset_bottom = 240.0
+text = "Continue"
+script = ExtResource( 6 )
+spec2 = true
+
+[node name="PauseMenu" type="TextureRect" parent="."]
+process_mode = 2
+visible = false
+modulate = Color( 0.0784314, 0.85098, 0.796078, 1 )
+offset_left = -61.0
+offset_top = -67.0
+offset_right = 69.0
+offset_bottom = 63.0
+texture = SubResource( 20 )
+expand = true
+
+[node name="Label" type="Label" parent="PauseMenu"]
+modulate = Color( 0.0431373, 0.00392157, 0.00392157, 1 )
+offset_left = 41.0
+offset_top = 13.0
+offset_right = 81.0
+offset_bottom = 27.0
+text = "Paused"
+
+[node name="Resume" type="Button" parent="PauseMenu"]
+process_mode = 2
+offset_left = 32.0
+offset_top = 39.0
+offset_right = 96.0
+offset_bottom = 59.0
+text = "Resume"
+
+[node name="Button2" type="Button" parent="PauseMenu"]
+process_mode = 2
+offset_left = 32.0
+offset_top = 81.0
+offset_right = 96.0
+offset_bottom = 101.0
+text = "Menu"
+script = ExtResource( 6 )
+path = "res://Scenes/Menus/MainMenu.tscn"
+
+[node name="Intro" type="TextureRect" parent="."]
+visible = false
+offset_left = -261.0
+offset_top = -123.0
+offset_right = -146.0
+offset_bottom = -69.0
+scale = Vector2( 4.56126, 4.56126 )
+texture = SubResource( 23 )
+expand = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Intro"]
+modulate = Color( 0.0588235, 0.0470588, 0.0470588, 1 )
+offset_left = -88.1336
+offset_top = 10.9619
+offset_right = 3.86642
+offset_bottom = 46.9619
+theme_override_fonts/normal_font = SubResource( 24 )
+text = "      NEXT COMBATANT"
+fit_content_height = true
+
+[node name="ShowCase" type="AnimatedSprite2D" parent="Intro"]
+position = Vector2( 29.1586, -12.935 )
+scale = Vector2( 0.288663, 0.288663 )
+frames = ExtResource( 2 )
+animation = "Gem"
+frame = 1
+
+[node name="Label" type="Label" parent="Intro"]
+modulate = Color( 0.00784314, 0, 0, 1 )
+offset_left = 120.8
+offset_top = -21.7045
+offset_right = 144.8
+offset_bottom = -4.7045
+theme_override_fonts/font = SubResource( 26 )
+text = "???"
+
+[node name="Label2" type="Label" parent="Intro"]
+modulate = Color( 0.00784314, 0, 0, 1 )
+offset_left = -26.9662
+offset_top = 68.4022
+offset_right = 35.0338
+offset_bottom = 85.4022
+theme_override_fonts/font = SubResource( 27 )
+text = "Pilot: ???"
+
+[node name="AblityControl" type="Node2D" parent="."]
+script = ExtResource( 9 )
+
+[node name="PlayerTime" type="Timer" parent="AblityControl"]
+wait_time = 5.0
+one_shot = true
+
+[node name="EnemyTime" type="Timer" parent="AblityControl"]
+wait_time = 5.0
+one_shot = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+process_mode = 2
+position = Vector2( -382, 1 )
+emitting = false
+lifetime = 2.0
+texture = ExtResource( 13 )
+direction = Vector2( 2, 0 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 600.0
+scale_amount = 2.0
+
+[node name="TowerClose" type="AnimatedSprite2D" parent="."]
+position = Vector2( 366, 191 )
+scale = Vector2( 2.86667, 2.86667 )
+frames = ExtResource( 2 )
+animation = "Bob"
+frame = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.5, 0.4 )
+
+[node name="Label3" type="Label" parent="Camera2D"]
+visible = false
+offset_left = -13.0
+offset_top = -27.0
+offset_right = 18.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color( 0.980392, 0.988235, 0.0431373, 1 )
+theme_override_fonts/font = SubResource( 29 )
+text = "3"
+align = 1
+
+[connection signal="Covered" from="PlayerTurret" to="EnemyTurret" method="_on_PlayerTurret_Covered"]
+[connection signal="EnergyOut" from="PlayerTurret" to="EnemyTurret" method="_on_PlayerTurret_EnergyOut"]
+[connection signal="Fired" from="PlayerTurret" to="EnemyTurret" method="_on_PlayerTurret_Fired"]
+[connection signal="value_changed" from="PlayerTurret/EnergyBar" to="PlayerTurret" method="_on_EnergyBar_value_changed"]
+[connection signal="timeout" from="PlayerTurret/EnergyBar/LagTime" to="PlayerTurret/EnergyBar" method="_on_LagTime_timeout"]
+[connection signal="value_changed" from="PlayerTurret/HealthBar" to="PlayerTurret" method="_on_HealthBar_value_changed"]
+[connection signal="timeout" from="PlayerTurret/ReloadTime" to="PlayerTurret" method="_on_ReloadTime_timeout"]
+[connection signal="value_changed" from="EnemyTurret/EnergyBar2" to="EnemyTurret" method="_on_EnergyBar2_value_changed"]
+[connection signal="timeout" from="EnemyTurret/EnergyBar2/LagTime" to="EnemyTurret/EnergyBar2" method="_on_LagTime_timeout"]
+[connection signal="value_changed" from="EnemyTurret/HealthBar2" to="EnemyTurret" method="_on_HealthBar2_value_changed"]
+[connection signal="timeout" from="EnemyTurret/ReloadTime2" to="EnemyTurret" method="_on_ReloadTime2_timeout"]
+[connection signal="timeout" from="EnemyTurret/WaitTime" to="EnemyTurret" method="_on_WaitTime_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="pressed" from="Pause" to="." method="_on_Pause_pressed"]
+[connection signal="pressed" from="TextureRect/Button" to="PauseMenu/Button2" method="_on_button_pressed"]
+[connection signal="pressed" from="TextureRect/Button2" to="TextureRect/Button2" method="_on_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="PauseMenu/Button2" to="PauseMenu/Button2" method="_on_button_pressed"]
+[connection signal="timeout" from="AblityControl/PlayerTime" to="AblityControl" method="_on_PlayerTime_timeout"]
+[connection signal="timeout" from="AblityControl/EnemyTime" to="AblityControl" method="_on_EnemyTime_timeout"]
